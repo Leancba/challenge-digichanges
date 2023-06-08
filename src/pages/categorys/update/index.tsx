@@ -14,17 +14,17 @@ const IndexPage: Component = () =>
     const [ user ]: any = useApplicationContext();
     const categoryRepository = new CategoryRepository();
     const authRepository = new AuthRepository();
-    const [ role ] = createResource( { id, user: user() }, categoryRepository.getOne );
+    const [ category ] = createResource( { id, user: user() }, categoryRepository.getOne );
     const [ permissions ] = createResource( { user: user() }, authRepository.getAllPermissions );
-    usePermission( user, [ role, permissions ] );
+    usePermission( user, [ category, permissions ] );
 
     return (
         <PrivateLayout>
             <CategoryUpdate
-                roleSelected={role()?.data}
+                categorySelected={category()?.data}
                 permissionsList={permissions()?.data}
                 onUpdate={updateAction( { categoryRepository, id, user: user() } )}
-                loading={role.loading || permissions.loading}
+                loading={category.loading || permissions.loading}
             />
         </PrivateLayout>
     );

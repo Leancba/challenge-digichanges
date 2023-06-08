@@ -5,7 +5,7 @@ import RoleRepository from '../../../features/role/repositories/RoleRepository';
 import usePermission from '../../../features/shared/hooks/usePermission';
 import PrivateLayout from '../../../features/shared/layout/PrivateLayout/PrivateLayout';
 import ProductRepository from '../../../features/products/repositories/ProductsRepository';
-import UserCreate from '../../../features/products/templates/ProductCreate/UserCreate';
+import ProductCreate from '../../../features/products/templates/ProductCreate/ProductCreate';
 import CategoryRepository from '../../../features/categorys/repositories/CategoryRepository';
 import { createAction } from './handler';
 
@@ -26,7 +26,7 @@ const IndexPage: Component = () =>
 
     return (
         <PrivateLayout>
-            <UserCreate
+            <ProductCreate
                 onCreate={createAction( { productRepository } )}
                 permissionsList={permissions()?.data}
                 categoryList={categorys()?.data}

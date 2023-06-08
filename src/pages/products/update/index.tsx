@@ -6,7 +6,7 @@ import RoleRepository from '../../../features/role/repositories/RoleRepository';
 import usePermission from '../../../features/shared/hooks/usePermission';
 import PrivateLayout from '../../../features/shared/layout/PrivateLayout/PrivateLayout';
 import ProductRepository from '../../../features/products/repositories/ProductsRepository';
-import UserUpdate from '../../../features/products/templates/ProductUpdate/ProductUpdate';
+import ProductUpdate from '../../../features/products/templates/ProductUpdate/ProductUpdate';
 import CategoryRepository from '../../../features/categorys/repositories/CategoryRepository';
 import { updateAction } from './handlers';
 
@@ -20,12 +20,12 @@ const IndexPage: Component = () =>
     const categoryRepository = new CategoryRepository()
 
     const [ categorys ] = createResource( categoryRepository.getCategorys );
-    const [ userSelected ] = createResource( { id, user: user() }, productRepository.getOne );
+    const [ productSelected ] = createResource( { id, user: user() }, productRepository.getOne );
     const [ roles ] = createResource( { user: user() }, roleRepository.getRoles );
     const [ permissions ] = createResource( { user: user() }, authRepository.getAllPermissions );
-    usePermission( user, [ roles, permissions, userSelected ] );
+    usePermission( user, [ roles, permissions, productSelected ] );
 
-    const isLoading = createMemo( () => userSelected.loading || permissions.loading || roles.loading || categorys.loading );
+    const isLoading = createMemo( () => productSelected.loading || permissions.loading || roles.loading || categorys.loading );
 
     
     console.log(categorys()?.data)
@@ -34,9 +34,9 @@ const IndexPage: Component = () =>
 
     return (
         <PrivateLayout>
-            <UserUpdate
+            <ProductUpdate
                 onUpdate={updateAction( { productRepository, id } )}
-                userSelected={userSelected()?.data}
+                productSelected={productSelected()?.data}
                 categoryList={categorys()?.data}
                 rolesList={roles()?.data}
                 loading={isLoading()}

@@ -165,7 +165,7 @@ export const dashRoutes = [
         name: 'u_cagetory',
         icon: IconCog,
         showItem: true,
-        permission: permissions.USERS.LIST,
+        permission: permissions.CAGETORY.LIST,
         children:
         [
             {
@@ -174,7 +174,7 @@ export const dashRoutes = [
                 name: 'a_list',
                 icon: IconViewList,
                 showItem: true,
-                permission: permissions.USERS.LIST,
+                permission: permissions.CAGETORY.LIST,
             },
             {
                 path: '/create',
@@ -182,7 +182,7 @@ export const dashRoutes = [
                 name: 'a_create',
                 icon: IconPlus,
                 showItem: true,
-                permission: permissions.USERS.SAVE,
+                permission: permissions.CAGETORY.SAVE,
             },
             {
                 path: '/:id/update',
@@ -190,7 +190,7 @@ export const dashRoutes = [
                 name: 'u_update',
                 icon: IconPencilAlt,
                 showItem: false,
-                permission: permissions.USERS.UPDATE,
+                permission: permissions.CAGETORY.UPDATE,
             },
         ],
     },
@@ -199,7 +199,7 @@ export const dashRoutes = [
         name: 'Product',
         icon: IconViewMediaObject,
         showItem: true,
-        permission: permissions.USERS.LIST,
+        permission: permissions.PRODUCT.LIST,
         children:
         [
             {
@@ -208,7 +208,7 @@ export const dashRoutes = [
                 name: 'a_list',
                 icon: IconViewList,
                 showItem: true,
-                permission: permissions.USERS.LIST,
+                permission: permissions.PRODUCT.LIST,
             },
             {
                 path: '/create',
@@ -216,7 +216,7 @@ export const dashRoutes = [
                 name: 'a_create',
                 icon: IconPlus,
                 showItem: true,
-                permission: permissions.USERS.SAVE,
+                permission: permissions.PRODUCT.SAVE,
             },
             {
                 path: '/:id/update',
@@ -224,7 +224,7 @@ export const dashRoutes = [
                 name: 'u_update',
                 icon: IconPencilAlt,
                 showItem: false,
-                permission: permissions.USERS.UPDATE,
+                permission: permissions.PRODUCT.UPDATE,
             },
         ],
     },

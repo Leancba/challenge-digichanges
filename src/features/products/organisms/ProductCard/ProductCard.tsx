@@ -3,48 +3,49 @@ import { Link } from "@solidjs/router";
 import { Component } from "solid-js";
 import IconPencilAlt from "../../../../atoms/Icons/Stroke/IconPencilAlt";
 import IconTrash from "../../../../atoms/Icons/Stroke/IconTrash";
+import { permissions } from "../../../../config/permissions";
 import Card from "../../../shared/molecules/Card/Card";
 import CardContent from "../../../shared/molecules/CardContent/CardContent";
 import { ProductApi } from "../../interfaces";
 
-interface UserCardProps {
-  user: ProductApi;
+interface ProductCardProps {
+  product: ProductApi;
   onDelete: () => void;
 }
 
-const UserCard: Component<UserCardProps> = (props) => (
+const ProductCard: Component<ProductCardProps> = (props) => (
   <Card>
     <CardContent class="card_container">
       <div class="card_media_object">
-        <h6 class="card_media_object_title" data-parent="usersShow">
+        <h6 class="card_media_object_title" data-parent={permissions.PRODUCT.LIST}>
           <Link
             class="card_media_object_link has-permission"
-            href={`/products/${props.user.id}/update`}
+            href={`/products/${props.product.id}/update`}
           >
-            {`${props.user.title}`}
+            {`${props.product.title}`}
           </Link>
         </h6>
         <p class={"text-ellipsis overflow-hidden whitespace-nowrap"}>
-          ${props.user.price}
+          ${props.product.price}
         </p>
-        {typeof props.user.category === "string" ? (
+        {typeof props.product.category === "string" ? (
           <p class={"text-ellipsis overflow-hidden whitespace-nowrap"}>
-            {props.user.category}
+            {props.product.category}
           </p>
-        ) : Array.isArray(props.user.category) ? (
+        ) : Array.isArray(props.product.category) ? (
           <p class={"text-ellipsis overflow-hidden"}>
-            {props.user.category?.join(" - ")}
+            {props.product.category?.join(" - ")}
           </p>
         ) : null}
-        <span style={{ color: props.user.enable ? "#00800059" : "#ff000082" }}>
-          {props.user.enable ? "Habilitado" : "Deshabilitado"}
+        <span style={{ color: props.product.enable ? "#00800059" : "#ff000082" }}>
+          {props.product.enable ? "Habilitado" : "Deshabilitado"}
         </span>
       </div>
 
       <div class="card_third">
-        <div data-parent="usersUpdate">
+        <div data-parent={permissions.PRODUCT.UPDATE}>
           <div class="has-permission">
-            <Link href={`/products/${props.user.id}/update`}>
+            <Link href={`/products/${props.product.id}/update`}>
               <IconButton
                 _dark={{ color: "success.300", cursor: "pointer" }}
                 size={"xs"}
@@ -56,7 +57,7 @@ const UserCard: Component<UserCardProps> = (props) => (
             </Link>
           </div>
         </div>
-        <div data-parent="usersDelete">
+        <div data-parent={permissions.PRODUCT.DELETE}>
           <IconButton
             _dark={{ color: "danger.200", cursor: "pointer" }}
             size={"xs"}
@@ -73,4 +74,4 @@ const UserCard: Component<UserCardProps> = (props) => (
   </Card>
 );
 
-export default UserCard;
+export default ProductCard;

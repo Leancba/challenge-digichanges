@@ -35,6 +35,15 @@ export const permissions = {
         DOWNLOAD: 'filesDownload',
     },
     CAGETORY: {
+        SAVE: 'categorySave',
+        LIST: 'categoryList',
         UPDATE: 'categoryUpdate',
+        DELETE: 'categoryDelete',
+    },
+    PRODUCT: {
+        SAVE: 'productSave',
+        LIST: 'productList',
+        UPDATE: 'productUpdate',
+        DELETE: 'productDelete',
     },
 };

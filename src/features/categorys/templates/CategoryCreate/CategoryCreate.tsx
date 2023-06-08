@@ -36,7 +36,7 @@ const CategoryCreate: Component<CategoryCreateTemplateProps> = props =>
         const errorMessage = setError( error );
         notificationService.show( {
             status: 'danger',
-            title: t( 'err_save_role' ) as string,
+            title: t( 'err_save_category' ) as string,
             description: t( errorMessage ) as string,
         } );
     } ;
@@ -47,7 +47,7 @@ const CategoryCreate: Component<CategoryCreateTemplateProps> = props =>
             <AlertErrors
                 errorData={errorAlert.errorData()}
                 title="err_save"
-                description="err_save_role"
+                description="err_save_category"
             />
 
             <header class="section_header_container">

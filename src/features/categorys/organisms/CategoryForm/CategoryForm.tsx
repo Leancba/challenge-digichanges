@@ -9,18 +9,19 @@ import { CategoryApi, CategoryPayload, CategoryResponse } from '../../interfaces
 import CategorySchema from '../../validations/schemas/CategorySchema';
 import Switch from '../../../shared/molecules/Switch/Switch';
 import { darkInput, darkNeutralButton, darkPrimaryButtonWithBackground, placeholderInput } from '../../../shared/constants/hopeAdapter';
+import { permissions } from '../../../../config/permissions';
 
 
-interface RoleUpdateTemplateProps
+interface CategoryUpdateTemplateProps
 {
     onError: ( error: unknown ) => void;
     onSubmit: ( data: CategoryPayload ) => Promise<CategoryResponse>;
     onSuccess: () => void;
-    roleSelected?: CategoryApi | undefined;
+    categorySelected?: CategoryApi | undefined;
     
 }
 
-const RoleForm: Component<RoleUpdateTemplateProps> = ( props ) =>
+const CategoryForm: Component<CategoryUpdateTemplateProps> = ( props ) =>
 {
     const i18n = useI18n();
     const { t } = i18n;
@@ -54,12 +55,12 @@ const RoleForm: Component<RoleUpdateTemplateProps> = ( props ) =>
 
     onMount( () =>
     {
-        if ( props.roleSelected )
+        if ( props.categorySelected )
         {
-            for ( const key in props.roleSelected )
+            for ( const key in props.categorySelected )
             {
                 // @ts-ignore
-                setFields( key, props.roleSelected[key] );
+                setFields( key, props.categorySelected[key] );
             }
         }
     } );
@@ -79,7 +80,7 @@ const RoleForm: Component<RoleUpdateTemplateProps> = ( props ) =>
                         name="title"
                         type="text"
                         placeholder={t( 'a_enter_title' ) as string}
-                        value={props.roleSelected?.title}
+                        value={props.categorySelected?.title}
                     />
                     <Show when={errors( 'title' )} keyed>
                         <FormControlError class="error_message_block">
@@ -106,7 +107,7 @@ const RoleForm: Component<RoleUpdateTemplateProps> = ( props ) =>
                 </FormControl>
             </div>
 
-            <div class="update_save_buttons_container" data-parent={'rolesUpdate'}>
+            <div class="update_save_buttons_container" data-parent={permissions.CAGETORY.UPDATE}>
                 <div class="button_full has-permission">
                     <Button
                         _dark={darkNeutralButton}
@@ -143,4 +144,4 @@ const RoleForm: Component<RoleUpdateTemplateProps> = ( props ) =>
         </form>
     );
 };
-export default RoleForm;
+export default CategoryForm;

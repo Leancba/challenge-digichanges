@@ -9,10 +9,10 @@ import { CategoryApi } from '../../../categorys/interfaces';
 import createAlert from '../../../shared/hooks/createAlert';
 import GeneralLoader from '../../../shared/templates/GeneralLoader';
 import { ProductPayload } from '../../interfaces';
-import UserForm from '../../organisms/ProductsForm/ProductsForm';
+import ProductForm from '../../organisms/ProductsForm/ProductsForm';
 
 
-interface UserCreateTemplateProps {
+interface ProductCreateTemplateProps {
     permissionsList?: PermissionApi[];
     categoryList?: CategoryApi[];
     rolesList?: RoleApi[];
@@ -20,7 +20,7 @@ interface UserCreateTemplateProps {
     loading: boolean;
 }
 
-const UserCreate: Component<UserCreateTemplateProps> = props =>
+const ProductCreate: Component<ProductCreateTemplateProps> = props =>
 {
     const { t } = useI18n();
     const navigate = useNavigate();
@@ -54,12 +54,11 @@ const UserCreate: Component<UserCreateTemplateProps> = props =>
             </header>
 
             <Show when={!props.loading} fallback={() => <GeneralLoader/>} keyed>
-                <UserForm
+                <ProductForm
                     onError={handleError()}
                     onSubmit={props.onCreate}
                     onSuccess={handleSuccess()}
-                    requiredPermission={{ submit: permissions.USERS.SAVE }}
-                    rolesList={props.rolesList}
+                    requiredPermission={{ submit: permissions.PRODUCT.SAVE }}
                     categoryList={props.categoryList}
                 />
             </Show>
@@ -68,4 +67,4 @@ const UserCreate: Component<UserCreateTemplateProps> = props =>
     );
 };
 
-export default UserCreate;
+export default ProductCreate;

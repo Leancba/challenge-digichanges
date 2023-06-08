@@ -17,6 +17,8 @@ const createRefreshToken = () =>
     const setUser = async () =>
     {
         const userAuth = await assignAllPermissionsToSuperAdminUser( auth()?.data );
+        console.log(userAuth)
+        navigate( '/dashboard', { replace: true } );
         return addUser( userAuth );
     };
 

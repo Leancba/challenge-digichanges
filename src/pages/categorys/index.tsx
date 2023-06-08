@@ -23,18 +23,18 @@
 
         const { page, goToPage, goFirstPage, getURLSearchParams } = useQuery( INIT_STATE.nextPaginationParams );
 
-        const [ categoryList, { refetch } ] = createResource( () => ( { user: user(), queryParams: getURLSearchParams() } ), () => categoryRepository.getCategorys() );
-        const { resourceList: roleList, setViewMore, paginationData } = usePaginatedState<CategoryApi, CategoryResponse>( categoryList );
+        const [ category, { refetch } ] = createResource( () => ( { user: user(), queryParams: getURLSearchParams() } ), () => categoryRepository.getCategorys() );
+        const { resourceList: categoryList, setViewMore, paginationData } = usePaginatedState<CategoryApi, CategoryResponse>( category );
 
-        usePermission( user, [ categoryList ] );
+        usePermission( user, [ category ] );
 
         const viewMoreAction = () => () =>
         {
-            goToPage( categoryList()?.pagination?.nextUrl );
+            goToPage( category()?.pagination?.nextUrl );
             setViewMore();
         };
 
-        createEffect( () => categoryList.error && setError( categoryList.error ) );
+        createEffect( () => category.error && setError( category.error ) );
 
         console.log(refetch())
 
@@ -63,7 +63,7 @@
                 const errorMessage = setError( error );
                 notificationService.show( {
                     status: 'danger',
-                    title: t( 'err_remove_role' ) as string,
+                    title: t( 'err_remove_category' ) as string,
                     description: t( errorMessage ) as string,
                 } );
             }
@@ -74,12 +74,12 @@
                 <AlertErrors
                     errorData={errorData()}
                     title="err"
-                    description="err_process_role"
+                    description="err_remove_category"
                 />
                 <CategoryList
-                    roleList={roleList()}
+                    categoryList={categoryList()}
                     removeAction={removeAction}
-                    loading={categoryList.loading}
+                    loading={category.loading}
                     viewMoreAction={viewMoreAction}
                     nextPage={paginationData()?.nextUrl}
                 />

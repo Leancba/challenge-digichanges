@@ -30,18 +30,16 @@ enum RequiredPermission {
   submit = "submit",
 }
 
-interface UserUpdateTemplateProps {
+interface ProductUpdateTemplateProps {
   onError: (error: unknown) => void;
   onSubmit: (data: ProductPayload) => Promise<void>;
   onSuccess: () => void;
-  userSelected?: ProductApi | undefined;
+  productSelected?: ProductApi | undefined;
   requiredPermission: Record<RequiredPermission, string>;
-  rolesList?: RoleApi[];
   categoryList?: CategoryApi[];
 }
 
-const UserForm: Component<UserUpdateTemplateProps> = (props) => {
-  console.log(props)
+const ProductForm: Component<ProductUpdateTemplateProps> = (props) => {
   
   const i18n = useI18n();
   const { t } = i18n;
@@ -84,16 +82,16 @@ const UserForm: Component<UserUpdateTemplateProps> = (props) => {
   
     onMount( () =>
     {
-        if ( props.userSelected )
+        if ( props.productSelected )
         {
-            for ( const key in props.userSelected )
+            for ( const key in props.productSelected )
             
             {
 
                 {
                     // @ts-ignore
                     
-                    setFields( key, props.userSelected[key] );
+                    setFields( key, props.productSelected[key] );
                 }
             }
         }
@@ -107,7 +105,7 @@ const UserForm: Component<UserUpdateTemplateProps> = (props) => {
   const CategoryStrings = filteredCategories?.map((category) => category.title);
 
   //creo el objeto concatenando los objetos anteriores para asi obtener el options del selector
-  const mergedArray = CategoryStrings?.concat(props.userSelected?.category ?? []);
+  const mergedArray = CategoryStrings?.concat(props.productSelected?.category ?? []);
 
   //filtro las categorias que sean iguales tanto en la propiedad del objeto como en el selector
   //por que al utilizarse como el option del multiselect se van a repetir si el objeto ya las tiene
@@ -139,7 +137,7 @@ const UserForm: Component<UserUpdateTemplateProps> = (props) => {
             name="title"
             type="text"
             placeholder={t("a_enter_product_title") as string}
-            value={props.userSelected?.title}
+            value={props.productSelected?.title}
           />
           <Show when={errors("title")} keyed>
             <FormControlError class="error_message_block">
@@ -165,7 +163,7 @@ const UserForm: Component<UserUpdateTemplateProps> = (props) => {
             name="price"
             type="number"
             placeholder={t("a_enter_price") as string}
-            value={props.userSelected?.price}
+            value={props.productSelected?.price}
           />
           <Show when={errors("price")} keyed>
             <FormControlError class="error_message_block">
@@ -262,4 +260,4 @@ const UserForm: Component<UserUpdateTemplateProps> = (props) => {
   );
 };
 
-export default UserForm;
+export default ProductForm;

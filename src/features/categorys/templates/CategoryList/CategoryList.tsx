@@ -12,16 +12,16 @@ import CategoryCard from '../../organisms/CategoryCard/CategoryCard';
 import styles from '../../../user/templates/UserList/UserList.module.css';
 import { darkDangerButton, darkPrimaryButton } from '../../../shared/constants/hopeAdapter';
 
-interface RoleListTemplateProps
+interface CategoryListTemplateProps
 {
-    roleList: CategoryApi[] | undefined;
+    categoryList: CategoryApi[] | undefined;
     removeAction: any;
     loading: boolean;
     viewMoreAction: any;
     nextPage: string | undefined;
 }
 
-const CategoryList: Component<RoleListTemplateProps> = ( props ) =>
+const CategoryList: Component<CategoryListTemplateProps> = ( props ) =>
 {
     const i18n = useI18n();
     const { t } = i18n;
@@ -35,9 +35,9 @@ const CategoryList: Component<RoleListTemplateProps> = ( props ) =>
         close();
     };
 
-    const handleDelete = ( role: CategoryApi ) => () =>
+    const handleDelete = ( category: CategoryApi ) => () =>
     {
-        deleteData = role;
+        deleteData = category;
         open();
     };
 
@@ -72,7 +72,7 @@ const CategoryList: Component<RoleListTemplateProps> = ( props ) =>
                 </Modal.Content>
             </Modal>
 
-            <header class="section_header_container" data-parent={permissions.ROLES.SAVE}>
+            <header class="section_header_container" data-parent={permissions.CAGETORY.SAVE}>
                 <h1 class="section_title">
                     <Text message="c_list" />
                 </h1>
@@ -96,10 +96,10 @@ const CategoryList: Component<RoleListTemplateProps> = ( props ) =>
             </Show>
 
             <div class="grid_cards_container">
-                <Show when={!props.loading || props.roleList?.length} keyed>
-                    <For each={props.roleList} fallback={<span class={'text-neutral-50'}><Text message="No Categorys" /></span>}>
-                        {( role ) =>
-                            <CategoryCard role={role} onDelete={handleDelete( role )} /> 
+                <Show when={!props.loading || props.categoryList?.length} keyed>
+                    <For each={props.categoryList} fallback={<span class={'text-neutral-50'}><Text message="No Categorys" /></span>}>
+                        {( category ) =>
+                            <CategoryCard category={category} onDelete={handleDelete( category )} /> 
                         }
                     </For>
                 </Show>
@@ -114,7 +114,7 @@ const CategoryList: Component<RoleListTemplateProps> = ( props ) =>
                     </Button>
                 </Show>
 
-                <ButtonScrollUp dependencies={props.roleList}/>
+                <ButtonScrollUp dependencies={props.categoryList}/>
             </div>
         </section>
     );

@@ -197,6 +197,24 @@
       "permissions": [
         "rolesUpdate"
       ]
+    },
+    {
+      "group": "CATEGORY",
+      "permissions": [
+        "categorySave",
+        "categoryList",
+        "categoryUpdate",
+        "categoryDelete"
+      ]
+    },
+    {
+      "group": "PRODUCT",
+      "permissions": [
+        "productSave",
+        "productList",
+        "productUpdate",
+        "productDelete"
+      ]
     }
   ],
   "roles": [
@@ -251,15 +269,6 @@
     }
   ],
   "products": [
-    {
-      "title": "producto 3",
-      "price": 12332,
-      "enable": true,
-      "category": [
-        "Prueba2"
-      ],
-      "id": 10
-    },
     {
       "title": "zxczxczxc",
       "price": 73,

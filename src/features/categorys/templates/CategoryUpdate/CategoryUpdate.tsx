@@ -15,7 +15,7 @@ interface RoleUpdateTemplateProps
 {
     permissionsList?: PermissionApi[];
     onUpdate: ( data: CategoryPayload ) => Promise<CategoryResponse>;
-    roleSelected: CategoryApi | undefined;
+    categorySelected: CategoryApi | undefined;
     loading: boolean;
 }
 
@@ -54,7 +54,7 @@ const CategoryUpdate: Component<RoleUpdateTemplateProps> = ( props ) =>
                 description="err_save_category"
             />
 
-            <header class="section_header_container" data-parent={permissions.ROLES.UPDATE}>
+            <header class="section_header_container" data-parent={permissions.CAGETORY.UPDATE}>
                 <div class="has-permission">
                     <h1 class="section_title"><Text message="c_update"/></h1>
                 </div>
@@ -68,7 +68,7 @@ const CategoryUpdate: Component<RoleUpdateTemplateProps> = ( props ) =>
                     onError={handleError()}
                     onSubmit={props.onUpdate}
                     onSuccess={handleSuccess()}
-                    roleSelected={props.roleSelected}
+                    categorySelected={props.categorySelected}
                 />
             </Show>
         </section>

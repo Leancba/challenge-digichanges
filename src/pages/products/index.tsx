@@ -11,7 +11,7 @@ import createAlert from '../../features/shared/hooks/createAlert';
 import AlertErrors from '../../features/shared/molecules/AlertErrors/AlertErrors';
 import { useI18n } from 'solid-i18n';
 import { ProductApi, ProductListResponse } from '../../features/products/interfaces';
-import UserList from '../../features/products/templates/ProductList/ProductList';
+import ProductList from '../../features/products/templates/ProductList/ProductList';
 import ProductRepository from '../../features/products/repositories/ProductsRepository';
 
 const IndexPage: Component = () =>
@@ -25,7 +25,7 @@ const IndexPage: Component = () =>
 
     const [ product, { refetch } ] = createResource( () => ( { user: user(), queryParams: getURLSearchParams() } ), () => productRepository.getUsers() );
 
-    const { resourceList: userList, setViewMore, paginationData } = usePaginatedState<ProductApi, ProductListResponse>( product );
+    const { resourceList: productList, setViewMore, paginationData } = usePaginatedState<ProductApi, ProductListResponse>( product );
 
     usePermission( user, [ product ] );
 
@@ -44,8 +44,8 @@ const IndexPage: Component = () =>
                 title="err"
                 description="err_process_user"
             />
-            <UserList
-                userList={userList()}
+            <ProductList
+                productList={productList()}
                 removeAction={deleteProduct( { productRepository, setError, refetch, t } )}
                 loading={product.loading}
                 viewMoreAction={() => viewMoreAction}

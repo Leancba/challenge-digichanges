@@ -4,12 +4,13 @@ import { Text, useI18n } from 'solid-i18n';
 import { Component } from "solid-js";
 import IconPencilAlt from "../../../../atoms/Icons/Stroke/IconPencilAlt";
 import IconTrash from "../../../../atoms/Icons/Stroke/IconTrash";
+import { permissions } from "../../../../config/permissions";
 import Card from "../../../shared/molecules/Card/Card";
 import CardContent from "../../../shared/molecules/CardContent/CardContent";
 import { CategoryApi } from "../../interfaces";
 
 interface CategoryCardProps {
-  role: CategoryApi;
+  category: CategoryApi;
   onDelete: () => void;
 }
 
@@ -17,27 +18,27 @@ const CategoryCard: Component<CategoryCardProps> = (props) => (
   <Card>
     <CardContent class="card_container">
       <div class="card_media_object">
-        <h6 class="card_media_object_title" data-parent="rolesShow">
+        <h6 class="card_media_object_title" data-parent={permissions.CAGETORY.LIST}>
           <Link
             class="card_media_object_link has-permission"
-            href={`/category/${props.role.id}/update`}
+            href={`/category/${props.category.id}/update`}
           >
-            {props.role.title}
+            {props.category.title}
           </Link>
           
           <span class="card_media_object_span fallback">
-            {props.role.title}
+            {props.category.title}
           </span>
         </h6>
-        <span style={{ color: props.role.enable ? "#00800059" : "#ff000082" }}>
-          {props.role.enable ? <Text message="enable"/> : <Text message="disable"/>}
+        <span style={{ color: props.category.enable ? "#00800059" : "#ff000082" }}>
+          {props.category.enable ? <Text message="enable"/> : <Text message="disable"/>}
         </span>
       </div>
 
       <div class="card_third">
-        <div data-parent="rolesUpdate">
+        <div data-parent={permissions.CAGETORY.UPDATE}>
           <div class="has-permission">
-            <Link href={`/category/${props.role.id}/update`}>
+            <Link href={`/category/${props.category.id}/update`}>
               <IconButton
                 aria-label="Edit"
                 variant="plain"
@@ -49,10 +50,10 @@ const CategoryCard: Component<CategoryCardProps> = (props) => (
             </Link>
           </div>
         </div>
-        <div data-parent="rolesDelete">
+        <div data-parent={permissions.CAGETORY.DELETE}>
           <IconButton
             class="has-permission"
-            aria-label="Delete Role"
+            aria-label="Delete Category"
             variant="plain"
             children={<IconTrash />}
             colorScheme="danger"

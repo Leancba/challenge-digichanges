@@ -10,20 +10,20 @@ import ButtonScrollUp from '../../../shared/molecules/ButtonScrollUp/ButtonScrol
 import GeneralLoader from '../../../shared/templates/GeneralLoader';
 import { filterBy } from '../../constants/filterBy';
 import { ProductApi } from '../../interfaces';
-import UserCard from '../../organisms/ProductCard/ProductCard';
-import styles from './UserList.module.css';
+import ProductCard from '../../organisms/ProductCard/ProductCard';
+import styles from './ProductList.module.css';
 import { darkDangerButton, darkPrimaryButton, darkTransparentButton } from '../../../shared/constants/hopeAdapter';
 
-interface UserListTemplateProps
+interface ProductListTemplateProps
 {
-    userList: ProductApi[] | undefined;
+    productList: ProductApi[] | undefined;
     removeAction: any;
     loading: boolean;
     viewMoreAction: any;
     nextPage: string | undefined;
 }
 
-const UserList: Component<UserListTemplateProps> = ( props ) =>
+const ProductList: Component<ProductListTemplateProps> = ( props ) =>
 {
     const i18n = useI18n();
     const { t } = i18n;
@@ -76,7 +76,7 @@ const UserList: Component<UserListTemplateProps> = ( props ) =>
                 </Modal.Content>
             </Modal>
 
-            <header class="section_header_container" data-parent={permissions.USERS.SAVE}>
+            <header class="section_header_container" data-parent={permissions.PRODUCT.SAVE}>
                 <h1 class="section_title">
                     <Text message="p_list" />
                 </h1>
@@ -101,10 +101,10 @@ const UserList: Component<UserListTemplateProps> = ( props ) =>
             </Show>
 
             <div class="grid_cards_container">
-                <Show when={!props.loading || props.userList?.length} keyed>
-                    <For each={props.userList} fallback={<span class={'text-neutral-50'}><Text message="u_no_users" /></span>}>
-                        {( user ) =>
-                            <UserCard user={user} onDelete={handleDelete( user )}/>}
+                <Show when={!props.loading || props.productList?.length} keyed>
+                    <For each={props.productList} fallback={<span class={'text-neutral-50'}><Text message="u_no_users" /></span>}>
+                        {( product ) =>
+                            <ProductCard product={product} onDelete={handleDelete( product )}/>}
                     </For>
                 </Show>
             </div>
@@ -118,10 +118,10 @@ const UserList: Component<UserListTemplateProps> = ( props ) =>
                     </Button>
                 </Show>
 
-                <ButtonScrollUp dependencies={props.userList}/>
+                <ButtonScrollUp dependencies={props.productList}/>
             </div>
         </section>
     );
 };
 
-export default UserList;
+export default ProductList;

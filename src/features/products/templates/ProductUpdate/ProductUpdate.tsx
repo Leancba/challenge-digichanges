@@ -9,18 +9,17 @@ import { CategoryApi } from '../../../categorys/interfaces';
 import createAlert from '../../../shared/hooks/createAlert';
 import GeneralLoader from '../../../shared/templates/GeneralLoader';
 import { ProductApi, ProductPayload } from '../../interfaces';
-import UserForm from '../../organisms/ProductsForm/ProductsForm';
+import ProductForm from '../../organisms/ProductsForm/ProductsForm';
 
-interface UserUpdateTemplateProps {
+interface ProductUpdateTemplateProps {
     permissionsList?: PermissionApi[];
-    rolesList?: RoleApi[];
     onUpdate: ( data: ProductPayload ) => Promise<void>;
     loading: boolean;
     categoryList?: CategoryApi[];
-    userSelected?: ProductApi | undefined;
+    productSelected?: ProductApi | undefined;
 }
 
-const UserUpdate: Component<UserUpdateTemplateProps> = props =>
+const ProductUpdate: Component<ProductUpdateTemplateProps> = props =>
 
 
 {
@@ -52,7 +51,7 @@ const UserUpdate: Component<UserUpdateTemplateProps> = props =>
     return (
         <section class="section_container">
 
-            <header class="section_header_container" data-parent={permissions.USERS.UPDATE}>
+            <header class="section_header_container" data-parent={permissions.PRODUCT.UPDATE}>
                 <div class="has-permission">
                     <h1 class="section_title"><Text message="p_update" /></h1>
                 </div>
@@ -61,13 +60,12 @@ const UserUpdate: Component<UserUpdateTemplateProps> = props =>
                 </div>
             </header>
             <Show when={!props.loading} fallback={() => <GeneralLoader/>} keyed>
-                <UserForm
+                <ProductForm
                     onError={handleError()}
                     onSubmit={props.onUpdate}
                     onSuccess={handleSuccess()}
-                    requiredPermission={{ submit: permissions.USERS.UPDATE }}
-                    rolesList={props.rolesList}
-                    userSelected={props.userSelected}
+                    requiredPermission={{ submit: permissions.PRODUCT.UPDATE }}
+                    productSelected={props.productSelected}
                     categoryList={props.categoryList}
                 />
             </Show>
@@ -76,4 +74,4 @@ const UserUpdate: Component<UserUpdateTemplateProps> = props =>
     );
 };
 
-export default UserUpdate;
+export default ProductUpdate;
