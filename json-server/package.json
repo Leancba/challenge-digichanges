@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server --port 8090",
-    "start": "json-server --routes routes.json --watch db.json --middlewares --port 8090"
+    "start": "json-server --routes routes.json --watch db.json --middlewares ./login.js --port 8090"
   },
   "keywords": [],
   "author": "",
