@@ -34,4 +34,7 @@ export const permissions = {
         UPDATE: 'filesUpdate',
         DOWNLOAD: 'filesDownload',
     },
+    CAGETORY: {
+        UPDATE: 'categoryUpdate',
+    },
 };

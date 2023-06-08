@@ -1,20 +1,22 @@
 {
   "users": [
     {
-      "permissions": [],
-      "documentType": "dni",
-      "country": "DZ",
+      "permissions": [
+        "filesList"
+      ],
       "enable": false,
-      "birthday": "1929-02-09",
+      "gender": "M",
+      "country": "DZ",
+      "documentType": "dni",
+      "password": "12345678",
+      "birthday": "2023-06-06",
       "firstName": "Daniels",
       "lastName": "Serpentini",
       "documentNumber": "2323232132143",
       "address": "Susie Brooks12",
       "email": "paolaflorvazquez@gmail.com",
       "phone": "32432432",
-      "password": "12345678",
       "passwordConfirmation": "12345678",
-      "gender": "M",
       "id": "O1fzV8l"
     },
     {
@@ -129,6 +131,7 @@
       "firstName": "Super",
       "lastName": "Admin",
       "email": "superadmin@node.com",
+      "password": "123456",
       "enable": true,
       "permissions": [],
       "roles": [],
@@ -188,29 +191,15 @@
         "usersChangeMyPassword",
         "usersChangeUserPassword"
       ]
+    },
+    {
+      "group": "CATEGORY",
+      "permissions": [
+        "rolesUpdate"
+      ]
     }
   ],
   "roles": [
-    {
-      "permissions": [
-        "authSyncPermissions"
-      ],
-      "enable": true,
-      "name": "Test",
-      "slug": "test",
-      "id": 1
-    },
-    {
-      "permissions": [
-        "authSyncPermissions",
-        "getPermissions",
-        "filesUpload"
-      ],
-      "enable": true,
-      "name": "Admin",
-      "slug": "admin",
-      "id": 2
-    },
     {
       "permissions": [
         "getPermissions"
@@ -219,6 +208,125 @@
       "name": "Test",
       "slug": "test",
       "id": 3
+    },
+    {
+      "permissions": [
+        "authSyncPermissions"
+      ],
+      "enable": true,
+      "name": "asd",
+      "slug": "asd",
+      "id": 4
+    },
+    {
+      "permissions": [
+        "filesList"
+      ],
+      "enable": true,
+      "name": "asd",
+      "slug": "asd",
+      "id": 5
+    },
+    {
+      "title": "asd",
+      "enable": true,
+      "id": 6
+    }
+  ],
+  "categorys": [
+    {
+      "title": "Prueba2",
+      "enable": false,
+      "id": 22
+    },
+    {
+      "title": "asdasd",
+      "enable": true,
+      "id": 23
+    },
+    {
+      "title": "probando 123123123",
+      "enable": true,
+      "id": 24
+    }
+  ],
+  "products": [
+    {
+      "title": "producto 3",
+      "price": 12332,
+      "enable": true,
+      "category": [
+        "Prueba2"
+      ],
+      "id": 10
+    },
+    {
+      "title": "zxczxczxc",
+      "price": 73,
+      "enable": true,
+      "category": [
+        "Categoria 1",
+        "categoriadeprueba"
+      ],
+      "id": 12
+    },
+    {
+      "title": "hola",
+      "price": 123,
+      "enable": true,
+      "category": [
+        "Categoria 1",
+        "Categoria 2",
+        "Categoria 3",
+        "Prueba2",
+        "hola"
+      ],
+      "id": 13
+    },
+    {
+      "title": "123123",
+      "price": 1,
+      "enable": true,
+      "category": [
+        "Categoria 1"
+      ],
+      "id": 14
+    },
+    {
+      "title": "test",
+      "price": 123,
+      "enable": true,
+      "category": [
+        "asdasd"
+      ],
+      "id": 15
+    },
+    {
+      "title": "123",
+      "price": 123123,
+      "enable": true,
+      "category": [
+        "asdasd"
+      ],
+      "id": 16
+    },
+    {
+      "title": "creando",
+      "price": 123,
+      "enable": true,
+      "category": [
+        "asdasd"
+      ],
+      "id": 17
+    },
+    {
+      "title": "ccc",
+      "price": 2323,
+      "enable": true,
+      "category": [
+        "asdasd"
+      ],
+      "id": 18
     }
   ],
   "refresh-token": {

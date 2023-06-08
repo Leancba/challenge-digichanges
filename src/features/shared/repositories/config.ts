@@ -1,6 +1,6 @@
 const API_PROTOCOL = import.meta.env.VITE_API_PROTOCOL as string || 'http';
 const API_HOSTNAME = import.meta.env.VITE_API_HOSTNAME as string || 'localhost';
-const API_PORT = import.meta.env.VITE_API_PORT as string || 8089;
+const API_PORT = import.meta.env.VITE_API_PORT as string || 8090;
 const VITE_API_WITH_CREDENTIALS = import.meta.env.VITE_API_WITH_CREDENTIALS === 'true' ?? false;
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_API_BASE as string || 'api';
@@ -25,6 +25,7 @@ export const config = {
                 changeForgotPassword: `${BACKEND_BASE_PATH}/auth/change-forgot-password`,
                 register: `${BACKEND_BASE_PATH}/auth/signup`,
                 verifyYourAccount: `${BACKEND_BASE_PATH}/auth/verify-your-account`,
+                
             },
             users: {
                 getAll: `${BACKEND_BASE_PATH}/users`,
@@ -41,6 +42,21 @@ export const config = {
                 create: `${BACKEND_BASE_PATH}/roles`,
                 update: `${BACKEND_BASE_PATH}/roles`,
                 remove: `${BACKEND_BASE_PATH}/roles`,
+            },
+            category: {
+                getAll: `${BACKEND_BASE_PATH}/categorys`,
+                getOne: `${BACKEND_BASE_PATH}/categorys`,
+                update: `${BACKEND_BASE_PATH}/categorys`,
+                remove: `${BACKEND_BASE_PATH}/categorys`,
+                create: `${BACKEND_BASE_PATH}/categorys`,
+                
+            },
+            products: {
+                getAll: `${BACKEND_BASE_PATH}/products`,
+                getOne: `${BACKEND_BASE_PATH}/products`,
+                create: `${BACKEND_BASE_PATH}/products`,
+                update: `${BACKEND_BASE_PATH}/products`,
+                remove: `${BACKEND_BASE_PATH}/products`,
             },
         },
     },

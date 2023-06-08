@@ -10,6 +10,7 @@ const assignRoles = require( './assignRolesController' );
 const permissions = require('./permissions');
 const server = jsonServer.create();
 const router = jsonServer.router( path.resolve( __dirname, 'db.json' ) );
+console.log(router)
 const middlewares = jsonServer.defaults();
 server.use( middlewares );
 

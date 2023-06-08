@@ -11,7 +11,6 @@ import { RolePayload, RoleResponse } from '../../interfaces';
 import RoleForm from '../../organisms/RoleForm/RoleForm';
 
 interface RoleCreateTemplateProps {
-    permissionsList?: PermissionApi[];
     onCreate: ( data: RolePayload ) => Promise<RoleResponse>;
     loading: boolean;
 }

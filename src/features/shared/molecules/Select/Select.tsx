@@ -2,7 +2,7 @@ import { Component, JSX, For } from 'solid-js';
 import styles from './Select.module.css';
 import { Select as KSelect, MultiSelect as KMultiSelect, As } from '@kobalte/core';
 import { Text } from 'solid-i18n';
-import { HiSolidSelector } from 'solid-icons/hi';
+import { HiSolidServer } from 'solid-icons/hi';
 import { FiCheck } from 'solid-icons/fi';
 import { IoClose } from 'solid-icons/io';
 
@@ -53,7 +53,7 @@ export const Select: Component<SelectProps> = ( props ) =>
         >
             <KSelect.Trigger class={styles.select__trigger}>
                 <KSelect.Value class={styles.select__value} />
-                <KSelect.Icon class={styles.select__icon}><HiSolidSelector /></KSelect.Icon>
+                <KSelect.Icon class={styles.select__icon}><HiSolidServer /></KSelect.Icon>
             </KSelect.Trigger>
 
             <KSelect.Content class={styles.select__content}>
@@ -107,7 +107,7 @@ export const MultiSelect: Component<MultiSelectProps> = ( props ) =>
             <KMultiSelect.Trigger class={`${styles.select__trigger} w-full`} asChild>
                 <As component={'div'}>
                     <KMultiSelect.Value class={styles.select__value}/>
-                    <KSelect.Icon class={styles.select__icon}><HiSolidSelector /></KSelect.Icon>
+                    <KSelect.Icon class={styles.select__icon}><HiSolidServer /></KSelect.Icon>
                 </As>
             </KMultiSelect.Trigger>
 

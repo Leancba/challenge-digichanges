@@ -39,6 +39,12 @@ module.exports = ( req, res, next ) =>
                     ],
                 },
                 {
+                    group: 'CATEGORY',
+                    permissions: [
+                        'categoryUpdate',
+                    ],
+                },
+                {
                     group: 'OTHERS',
                     permissions: [
                         'all',

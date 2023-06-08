@@ -80,25 +80,35 @@ const UserForm: Component<UserUpdateTemplateProps> = ( props ) =>
         setFields( field, value, true );
     };
 
+    
+
     onMount( () =>
     {
         if ( props.userSelected )
         {
             for ( const key in props.userSelected )
+            
             {
                 if ( key === 'roles' )
+                
                 {
+                    
                     const rolesIds = props.userSelected[key].map( ( role ) => role.id );
+                        
                     setFields( key, rolesIds );
                 }
                 else
+                console.log(props.userSelected.permissions)
                 {
                     // @ts-ignore
+                    
                     setFields( key, props.userSelected[key] );
                 }
             }
         }
     } );
+
+    console.log(props.permissionsList)
 
     return (
         <form ref={form} class="form_flex">

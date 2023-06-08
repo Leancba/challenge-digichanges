@@ -4,10 +4,11 @@ import IconArrowCircleLeft from '../../../../atoms/Icons/Stroke/IconArrowCircleL
 import styles from './ButtonScrollUp.module.css';
 import { RoleApi } from '../../../role/interfaces';
 import { UserApi } from '../../../user/interfaces';
+import { CategoryApi } from '../../../categorys/interfaces';
 
 interface ButtonGoUpProps {
     onGoUp?: ( e: MouseEvent ) => void;
-    dependencies: RoleApi[] | UserApi[] | undefined;
+    dependencies: RoleApi[] | UserApi[] | CategoryApi[] | undefined;
 }
 
 const handleClick = ( { scrollTop }: { scrollTop: () => void } ) => () => scrollTop();
