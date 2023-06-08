@@ -93,9 +93,6 @@ const ProductList: Component<ProductListTemplateProps> = ( props ) =>
                     </Link>
                 </div>
             </header>
-
-            <Filter initialFilterOptions={filterOptions()} />
-
             <Show when={props.loading} keyed>
                 <GeneralLoader/>
             </Show>

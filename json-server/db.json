@@ -253,7 +253,7 @@
   ],
   "categorys": [
     {
-      "title": "Prueba2",
+      "title": "Prueba21",
       "enable": false,
       "id": 22
     },
@@ -309,33 +309,6 @@
         "asdasd"
       ],
       "id": 15
-    },
-    {
-      "title": "123",
-      "price": 123123,
-      "enable": true,
-      "category": [
-        "asdasd"
-      ],
-      "id": 16
-    },
-    {
-      "title": "creando",
-      "price": 123,
-      "enable": true,
-      "category": [
-        "asdasd"
-      ],
-      "id": 17
-    },
-    {
-      "title": "ccc",
-      "price": 2323,
-      "enable": true,
-      "category": [
-        "asdasd"
-      ],
-      "id": 18
     }
   ],
   "refresh-token": {

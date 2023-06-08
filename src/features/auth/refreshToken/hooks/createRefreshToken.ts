@@ -14,11 +14,10 @@ const createRefreshToken = () =>
     const [ user, { addUser } ] = useApplicationContext();
     const [ loading, setLoading ] = createSignal( true );
 
+    
     const setUser = async () =>
     {
         const userAuth = await assignAllPermissionsToSuperAdminUser( auth()?.data );
-        console.log(userAuth)
-        navigate( '/dashboard', { replace: true } );
         return addUser( userAuth );
     };
 
@@ -37,10 +36,13 @@ const createRefreshToken = () =>
         else
         {
             await setUser();
-            if ( REDIRECT_SIGNED_IN_USERS_PAGES.includes( location.pathname ) )
-            {
-                navigate( '/', { replace: true } );
-            }
+
+            if(location.pathname === '/'){
+                navigate( '/dashboard', { replace: true } );
+            } else {
+
+                navigate(`${location.pathname}`, { replace: true });
+            }  
         }
 
         setLoading( false );

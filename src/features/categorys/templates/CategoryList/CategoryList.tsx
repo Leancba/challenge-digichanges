@@ -6,7 +6,6 @@ import IconPlus from '../../../../atoms/Icons/Stroke/IconPlus';
 import { permissions } from '../../../../config/permissions';
 import ButtonScrollUp from '../../../shared/molecules/ButtonScrollUp/ButtonScrollUp';
 import GeneralLoader from '../../../shared/templates/GeneralLoader';
-import { filterBy } from '../../constants/filterBy';
 import { CategoryApi } from '../../interfaces';
 import CategoryCard from '../../organisms/CategoryCard/CategoryCard';
 import styles from '../../../user/templates/UserList/UserList.module.css';
@@ -46,7 +45,7 @@ const CategoryList: Component<CategoryListTemplateProps> = ( props ) =>
             <Modal isOpen={isOpen()} onClose={close}>
                 <Modal.Overlay _dark={{ bgColor: 'rgba(0, 0, 0, 0.65)' }}/>
                 <Modal.Content class={styles.modal_content} _dark={{ bgColor: 'neutral.800' }}>
-                    <Modal.CloseButton class={styles.close_button}/>
+                    <Modal.CloseButton clafilterss={styles.close_button}/>
                     <HStack>
                         <Modal.Heading class={'text-neutral-50 text-lg font-bold pb-3'}>
                             <Text message="a_delete_data"/>
