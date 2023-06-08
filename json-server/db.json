@@ -236,7 +236,7 @@
   "categorys": [
     {
       "title": "Prueba2",
-      "enable": true,
+      "enable": false,
       "id": 22
     },
     {
